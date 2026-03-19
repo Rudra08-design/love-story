@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>For You ❤️</title>
+<title>For Meri Bipasha ❤️</title>
 
 <style>
 body {
@@ -26,22 +26,27 @@ body {
   display: flex;
 }
 
+video {
+  width: 80%;
+  max-width: 500px;
+  border-radius: 20px;
+  margin: 20px;
+}
+
 button {
-  padding: 12px 24px;
+  padding: 10px 20px;
   border: none;
   background: white;
   color: #ff4d6d;
-  border-radius: 25px;
+  border-radius: 20px;
   cursor: pointer;
-  margin: 10px;
-  font-size: 16px;
 }
 
 button:hover {
   background: #ffe6ea;
 }
 
-/* floating hearts */
+/* hearts */
 .heart {
   position: absolute;
   bottom: -10px;
@@ -58,47 +63,20 @@ button:hover {
 
 <body>
 
-<!-- 🎶 BACKGROUND MUSIC -->
+<!-- BACKGROUND MUSIC -->
 <audio id="bgMusic" loop>
   <source src="song.mp4" type="audio/mp4">
 </audio>
 
 <!-- Page 1 -->
 <div class="page active">
-  <h1>Hey Bipasha 💖</h1>
-  <p>I made something special for you...</p>
+  <h2>For Meri Bipasha  💖</h2>
+
+  <video controls>
+    <source src="love_story.mp4" type="video/mp4">
+  </video>
 
   <button onclick="startMusic()">Play Music 🎶</button>
-  <button onclick="nextPage()">Next ➝</button>
-</div>
-
-<!-- Page 2 -->
-<div class="page">
-  <h2>From late night chats we came close 🌙</h2>
-  <button onclick="nextPage()">Next ➝</button>
-</div>
-
-<!-- Page 3 -->
-<div class="page">
-  <h2>Cute video calls made us smile even more 💕</h2>
-  <button onclick="nextPage()">Next ➝</button>
-</div>
-
-<!-- Page 4 -->
-<div class="page">
-  <h2>Meeting each other with the same excitement ❤️</h2>
-  <button onclick="nextPage()">Next ➝</button>
-</div>
-
-<!-- Page 5 -->
-<div class="page">
-  <h2>We’ll get married — that's my promise 💍</h2>
-  <button onclick="nextPage()">Next ➝</button>
-</div>
-
-<!-- Page 6 -->
-<div class="page">
-  <h2>Into our comfort place 🫂</h2>
   <button onclick="nextPage()">Next ➝</button>
 </div>
 
@@ -112,7 +90,6 @@ button:hover {
 let currentPage = 0;
 const pages = document.querySelectorAll(".page");
 
-/* Next button logic */
 function nextPage() {
   pages[currentPage].classList.remove("active");
   currentPage++;
@@ -121,12 +98,13 @@ function nextPage() {
   }
 }
 
-/* Music play */
+// MUSIC START (important for browser)
 function startMusic() {
-  document.getElementById("bgMusic").play();
+  const music = document.getElementById("bgMusic");
+  music.play();
 }
 
-/* Floating hearts */
+/* floating hearts */
 function createHeart() {
   const heart = document.createElement("div");
   heart.classList.add("heart");
