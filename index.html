@@ -10,8 +10,8 @@ body {
   font-family: Arial, sans-serif;
   background: linear-gradient(to right, #ffc0cb, #ffe4e1);
   overflow: hidden;
-  color: white;
   text-align: center;
+  color: white;
 }
 
 .page {
@@ -26,26 +26,22 @@ body {
   display: flex;
 }
 
-img {
-  width: 250px;
-  border-radius: 15px;
-  margin: 20px;
-}
-
 button {
-  padding: 10px 20px;
+  padding: 12px 24px;
   border: none;
   background: white;
   color: #ff4d6d;
-  border-radius: 20px;
+  border-radius: 25px;
   cursor: pointer;
+  margin: 10px;
+  font-size: 16px;
 }
 
 button:hover {
   background: #ffe6ea;
 }
 
-/* Floating hearts */
+/* floating hearts */
 .heart {
   position: absolute;
   bottom: -10px;
@@ -62,38 +58,47 @@ button:hover {
 
 <body>
 
+<!-- 🎶 BACKGROUND MUSIC -->
+<audio id="bgMusic" loop>
+  <source src="song.mp4" type="audio/mp4">
+</audio>
+
 <!-- Page 1 -->
 <div class="page active">
-  <h2>From late night chats we came close 💖</h2>
-  <img src="img1.jpg">
+  <h1>Hey Bipasha 💖</h1>
+  <p>I made something special for you...</p>
+
+  <button onclick="startMusic()">Play Music 🎶</button>
   <button onclick="nextPage()">Next ➝</button>
 </div>
 
 <!-- Page 2 -->
 <div class="page">
-  <h2>Cute video calls made us smile even more 🌸</h2>
-  <img src="img2.jpg">
+  <h2>From late night chats we came close 🌙</h2>
   <button onclick="nextPage()">Next ➝</button>
 </div>
 
 <!-- Page 3 -->
 <div class="page">
-  <h2>Meeting each other with the same excitement ❤️</h2>
-  <img src="img3.jpg">
+  <h2>Cute video calls made us smile even more 💕</h2>
   <button onclick="nextPage()">Next ➝</button>
 </div>
 
 <!-- Page 4 -->
 <div class="page">
-  <h2>We’ll get married — that's my promise 💍</h2>
-  <img src="img4.jpg">
+  <h2>Meeting each other with the same excitement ❤️</h2>
   <button onclick="nextPage()">Next ➝</button>
 </div>
 
 <!-- Page 5 -->
 <div class="page">
+  <h2>We’ll get married — that's my promise 💍</h2>
+  <button onclick="nextPage()">Next ➝</button>
+</div>
+
+<!-- Page 6 -->
+<div class="page">
   <h2>Into our comfort place 🫂</h2>
-  <img src="img5.jpg">
   <button onclick="nextPage()">Next ➝</button>
 </div>
 
@@ -107,6 +112,7 @@ button:hover {
 let currentPage = 0;
 const pages = document.querySelectorAll(".page");
 
+/* Next button logic */
 function nextPage() {
   pages[currentPage].classList.remove("active");
   currentPage++;
@@ -115,7 +121,12 @@ function nextPage() {
   }
 }
 
-/* Floating hearts generator */
+/* Music play */
+function startMusic() {
+  document.getElementById("bgMusic").play();
+}
+
+/* Floating hearts */
 function createHeart() {
   const heart = document.createElement("div");
   heart.classList.add("heart");
@@ -124,9 +135,7 @@ function createHeart() {
   heart.style.fontSize = Math.random() * 20 + 10 + "px";
   document.body.appendChild(heart);
 
-  setTimeout(() => {
-    heart.remove();
-  }, 5000);
+  setTimeout(() => heart.remove(), 5000);
 }
 
 setInterval(createHeart, 300);
