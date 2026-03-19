@@ -10,8 +10,8 @@ body {
   font-family: Arial, sans-serif;
   background: linear-gradient(to right, #ffc0cb, #ffe4e1);
   overflow: hidden;
-  text-align: center;
   color: white;
+  text-align: center;
 }
 
 .page {
@@ -26,10 +26,9 @@ body {
   display: flex;
 }
 
-video {
-  width: 80%;
-  max-width: 500px;
-  border-radius: 20px;
+img {
+  width: 250px;
+  border-radius: 15px;
   margin: 20px;
 }
 
@@ -65,10 +64,36 @@ button:hover {
 
 <!-- Page 1 -->
 <div class="page active">
-  <h2>I made something for you 💖</h2>
-  <video id="video" controls autoplay>
-    <source src="love_story.mp4" type="video/mp4">
-  </video>
+  <h2>From late night chats we came close 💖</h2>
+  <img src="img1.jpg">
+  <button onclick="nextPage()">Next ➝</button>
+</div>
+
+<!-- Page 2 -->
+<div class="page">
+  <h2>Cute video calls made us smile even more 🌸</h2>
+  <img src="img2.jpg">
+  <button onclick="nextPage()">Next ➝</button>
+</div>
+
+<!-- Page 3 -->
+<div class="page">
+  <h2>Meeting each other with the same excitement ❤️</h2>
+  <img src="img3.jpg">
+  <button onclick="nextPage()">Next ➝</button>
+</div>
+
+<!-- Page 4 -->
+<div class="page">
+  <h2>We’ll get married — that's my promise 💍</h2>
+  <img src="img4.jpg">
+  <button onclick="nextPage()">Next ➝</button>
+</div>
+
+<!-- Page 5 -->
+<div class="page">
+  <h2>Into our comfort place 🫂</h2>
+  <img src="img5.jpg">
   <button onclick="nextPage()">Next ➝</button>
 </div>
 
@@ -90,7 +115,7 @@ function nextPage() {
   }
 }
 
-/* Floating hearts */
+/* Floating hearts generator */
 function createHeart() {
   const heart = document.createElement("div");
   heart.classList.add("heart");
