@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>For Meri Bipasha ❤️</title>
+<title>For You ❤️</title>
 
 <style>
 body {
@@ -46,7 +46,7 @@ button:hover {
   background: #ffe6ea;
 }
 
-/* hearts */
+/* Floating hearts */
 .heart {
   position: absolute;
   bottom: -10px;
@@ -63,20 +63,12 @@ button:hover {
 
 <body>
 
-<!-- BACKGROUND MUSIC -->
-<audio id="bgMusic" loop>
-  <source src="song.mp4" type="audio/mp4">
-</audio>
-
 <!-- Page 1 -->
 <div class="page active">
-  <h2>For Meri Bipasha  💖</h2>
-
-  <video controls>
+  <h2>I made something for you 💖</h2>
+  <video id="video" controls autoplay>
     <source src="love_story.mp4" type="video/mp4">
   </video>
-
-  <button onclick="startMusic()">Play Music 🎶</button>
   <button onclick="nextPage()">Next ➝</button>
 </div>
 
@@ -98,13 +90,7 @@ function nextPage() {
   }
 }
 
-// MUSIC START (important for browser)
-function startMusic() {
-  const music = document.getElementById("bgMusic");
-  music.play();
-}
-
-/* floating hearts */
+/* Floating hearts */
 function createHeart() {
   const heart = document.createElement("div");
   heart.classList.add("heart");
@@ -113,7 +99,9 @@ function createHeart() {
   heart.style.fontSize = Math.random() * 20 + 10 + "px";
   document.body.appendChild(heart);
 
-  setTimeout(() => heart.remove(), 5000);
+  setTimeout(() => {
+    heart.remove();
+  }, 5000);
 }
 
 setInterval(createHeart, 300);
