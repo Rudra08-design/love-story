@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For You ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #ffc0cb, #ffe4e1);
+  overflow: hidden;
+  color: white;
+  text-align: center;
+}
+
+.page {
+  display: none;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.active {
+  display: flex;
+}
+
+img {
+  width: 250px;
+  border-radius: 15px;
+  margin: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  background: white;
+  color: #ff4d6d;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #ffe6ea;
+}
+
+/* Floating hearts */
+.heart {
+  position: absolute;
+  bottom: -10px;
+  font-size: 20px;
+  animation: float 5s linear infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-100vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Page 1 -->
+<div class="page active">
+  <h2>From late night chats we came close 💖</h2>
+  <img src="img1.jpg">
+  <button onclick="nextPage()">Next ➝</button>
+</div>
+
+<!-- Page 2 -->
+<div class="page">
+  <h2>Cute video calls made us smile even more 🌸</h2>
+  <img src="img2.jpg">
+  <button onclick="nextPage()">Next ➝</button>
+</div>
+
+<!-- Page 3 -->
+<div class="page">
+  <h2>Meeting each other with the same excitement ❤️</h2>
+  <img src="img3.jpg">
+  <button onclick="nextPage()">Next ➝</button>
+</div>
+
+<!-- Page 4 -->
+<div class="page">
+  <h2>We’ll get married — that's my promise 💍</h2>
+  <img src="img4.jpg">
+  <button onclick="nextPage()">Next ➝</button>
+</div>
+
+<!-- Page 5 -->
+<div class="page">
+  <h2>Into our comfort place 🫂</h2>
+  <img src="img5.jpg">
+  <button onclick="nextPage()">Next ➝</button>
+</div>
+
+<!-- Final Page -->
+<div class="page">
+  <h1>I LOVE YOU VERY MUCH ❣️</h1>
+  <h2>MERI PYARII WIFEY BIPASHA ❣️</h2>
+</div>
+
+<script>
+let currentPage = 0;
+const pages = document.querySelectorAll(".page");
+
+function nextPage() {
+  pages[currentPage].classList.remove("active");
+  currentPage++;
+  if (currentPage < pages.length) {
+    pages[currentPage].classList.add("active");
+  }
+}
+
+/* Floating hearts generator */
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = Math.random() * 20 + 10 + "px";
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 5000);
+}
+
+setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
